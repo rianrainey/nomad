@@ -1,6 +1,6 @@
 # Nomad
 [![CodeClimate](https://codeclimate.com/github/asm-products/nomad/badges/gpa.svg)](https://codeclimate.com/github/asm-products/nomad)
-[![TestCoverage](https://codeclimate.com/github/asm-products/nomad/badges/coverage.svg)](https://codeclimate.com/github/asm-products/nomad)
+[![Coverage Status](https://img.shields.io/coveralls/asm-products/nomad.svg)](https://coveralls.io/r/asm-products/nomad)
 [![Build Status](https://travis-ci.org/asm-products/nomad.svg?branch=master)](https://travis-ci.org/asm-products/nomad)
 
 This is a product being built by the Assembly community. You can help push this idea forward by visiting [https://assembly.com/nomad](https://assembly.com/nomad).
@@ -43,6 +43,24 @@ Open a new terminal tab and type ```boot2docker ip```. In my case I got ```192.1
 The next step is to create the database. You will need to copy the sample database.yml file; in the project root directory, run ```cp config/database.sample.yml config/database.yml```. In the same terminal run ```fig run web rake db:create``` followed by ```fig run web rake db:migrate```.
 
 Now reload your browser and you should be presented with the default Rails index page, it means that you have everything up and running.
+
+## API Documentation
+
+### Methods
+
+#### Search
+
+Returns all places in the given area ordered by distance.
+
+```
+/api/v1/places/search/:radius/:lat/:lng.json
+```
+
+* ```radius```: integer representing how much meters to cover
+* ```lat```: float number for latitude
+* ```lng```: float number for longitude
+
+Example: https://asm-nomad-staging.herokuapp.com/api/v1/places/search/1000/-23.0045582/-43.324637.json
 
 ## How Assembly Works
 
